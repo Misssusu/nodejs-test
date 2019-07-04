@@ -1,11 +1,11 @@
 btn.addEventListener('click',function() {
-    let image = document.createElement('img')
-    image.src = '/pay'
-    image.onload = function() {
-        amount.innerText = amount.innerText-1;
-        alert('付款成功')
+    let script = document.createElement('script')
+    script.src = '/pay';
+    document.body.appendChild(script)
+    script.onload = function(e) {
+        e.currentTarget.remove() //删除添加的script标签
     }
-    image.onerror = function() {
+    script.onerror = function() {
         alert('付款失败')
     }
 })
