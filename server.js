@@ -47,6 +47,13 @@ var server = http.createServer(function(request, response){
       response.write('amount.innerText = amount.innerText-1')
       response.statusCode = 200
     response.end()
+  }else if(path === '/xxx'){
+    response.setHeader('Content-Type', 'text/json')
+    response.write(`{
+      "name" : "susu"
+    }`)
+    response.statusCode = 200
+    response.end()
   }else{
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
